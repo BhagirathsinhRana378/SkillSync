@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: rgb(59, 59, 59);
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.half_1,
+.half_2 {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 4px #000000b0;
+}
+
+.half_1 {
+    background-color: #284B63;
+    left: 0;
+    animation: slideRight 1s ease-in-out forwards;
+    animation-delay: 0s;
+}
+
+.half_2 {
+    background-color: #D9D9D9;
+    right: 0;
+    animation: slideLeft 1s ease-in-out forwards;
+    animation-delay: 0s;
+}
+
+/* Keyframes */
+@keyframes slideRight {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: 50%;
+    }
+}
+
+/* ======================================slidup======================================== */
+.slid_up {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c8dbfd;
+    border-radius: 20px 20px 0 0;
+    z-index: 1;
+    animation: slideUpAndGrow 0.5s ease-in-out forwards;
+    animation-delay: 1.3s;
+}
+
+@keyframes slideUpAndGrow {
+    0% {
+        bottom: 0;
+        height: 0vh;
+    }
+
+    100% {
+        bottom: 100px;
+        height: 100vh;
+        color: #fff;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.slid_up h2 {
+    opacity: 0;
+    color: #252525;
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 1.7s;
+    font-weight: 700;
+
+}
+
+.h2_div {
+    transition: all 0.1s ease;
+
+}
+
+.h2_div:hover {
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #000000;
+    height: 50px;
+    margin-top: 20px;
+    border: transparent;
+    width: 120px;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    border-radius: 12px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    animation: In 1.2s ease forwards;
+    animation-delay: 1.7s;
+}
+
+.btn a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
+
+
+.btn:hover {
+    background-color: #ffffff;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    transform: scale(1.03);
+    box-shadow: 0px 0px 1px 1px #fff;
+}
+
+.btn:hover a {
+    color: #000000;
+}
+
+@keyframes In {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ======================================side_slid======================================== */
+.side_slide {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0vw;
+    height: 100px;
+    background-color: #292929;
+    border-radius: 0 0 10px 10px;
+    z-index: 1;
+    animation: slideslide 0.7s ease forwards;
+    animation-delay: 1.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes slideslide {
+    0% {
+        bottom: 0;
+        left: 0;
+        width: 0vh;
+    }
+
+    100% {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+
+    }
+}
+
+@keyframes slid_text {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.side_slide h3 {
+    opacity: 0;
+    color: #ffffff;
+    animation: slid_text 1.2s ease forwards;
+    animation-delay: 1.7s;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.side_slide h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
