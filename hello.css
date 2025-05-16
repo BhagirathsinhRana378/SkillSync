@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +7,18 @@
 }
 
 body {
-    background-color: rgb(59, 59, 59);
+    background-color: #222;
     overflow: hidden;
 }
+
 
 .container {
     width: 100vw;
     height: 100vh;
     position: relative;
+    overflow: hidden;
 }
+
 
 .half_1,
 .half_2 {
@@ -25,200 +29,195 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     color: #fff;
-    text-shadow: 0 0 4px #000000b0;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    transition: all 0.8s ease;
+    padding: 20px;
 }
 
 .half_1 {
-    background-color: #284B63;
+    background: linear-gradient(to bottom right, #284B63, #3A5A70);
     left: 0;
-    animation: slideRight 1s ease-in-out forwards;
-    animation-delay: 0s;
+    animation: slideRight 1s ease-out forwards;
 }
 
 .half_2 {
-    background-color: #D9D9D9;
+    background: linear-gradient(to bottom right, #D9D9D9, #bcbcbc);
     right: 0;
-    animation: slideLeft 1s ease-in-out forwards;
-    animation-delay: 0s;
+    color: #111;
+    animation: slideLeft 1s ease-out forwards;
 }
 
-/* Keyframes */
+/* Keyframes for sliding panels */
 @keyframes slideRight {
-    from {
-        left: 0;
-    }
-
-    to {
-        left: 50%;
-    }
+    from { left: 0; }
+    to { left: 50%; }
 }
 
 @keyframes slideLeft {
-    from {
-        right: 0;
-    }
-
-    to {
-        right: 50%;
-    }
+    from { right: 0; }
+    to { right: 50%; }
 }
 
-/* ======================================slidup======================================== */
+/* Slide up section */
 .slid_up {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 0vh;
+    height: 0;
+    background-color: #c8dbfd;
+    border-radius: 20px 20px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #c8dbfd;
-    border-radius: 20px 20px 0 0;
-    z-index: 1;
-    animation: slideUpAndGrow 0.5s ease-in-out forwards;
+    animation: slideUpAndGrow 0.7s ease-out forwards;
     animation-delay: 1.3s;
+    z-index: 2;
 }
 
 @keyframes slideUpAndGrow {
-    0% {
+    from {
+        height: 0;
         bottom: 0;
-        height: 0vh;
     }
-
-    100% {
-        bottom: 100px;
+    to {
         height: 100vh;
-        color: #fff;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
+        bottom: 100px;
     }
 }
 
 .slid_up h2 {
-    opacity: 0;
     color: #252525;
+    font-size: 2rem;
+    font-weight: 700;
+    opacity: 0;
     animation: fadeIn 1.2s ease forwards;
     animation-delay: 1.7s;
-    font-weight: 700;
-
 }
 
+/* Hover effect for heading */
 .h2_div {
-    transition: all 0.1s ease;
-
+    transition: transform 0.2s ease;
 }
 
 .h2_div:hover {
     cursor: pointer;
+    transform: scale(1.05);
 }
 
+/* Button style */
 .btn {
-    background-color: #000000;
-    height: 50px;
-    margin-top: 20px;
-    border: transparent;
-    width: 120px;
-    border-top: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    background-color: #000;
+    border: none;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
     border-radius: 12px;
+    width: 140px;
+    height: 50px;
+    margin-top: 25px;
     opacity: 0;
-    transition: all 0.3s ease-in-out;
-    animation: In 1.2s ease forwards;
+    animation: fadeIn 1.2s ease forwards;
     animation-delay: 1.7s;
+    transition: all 0.3s ease-in-out;
 }
 
 .btn a {
+    color: #fff;
     text-decoration: none;
-    color: rgb(255, 255, 255);
     font-weight: bold;
-    transition: color 0.2s ease-in-out;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
 }
 
-
 .btn:hover {
-    background-color: #ffffff;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #000000;
-    transform: scale(1.03);
-    box-shadow: 0px 0px 1px 1px #fff;
+    background-color: #fff;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px #fff;
 }
 
 .btn:hover a {
-    color: #000000;
+    color: #000;
 }
 
-@keyframes In {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/* ======================================side_slid======================================== */
+/* Slide from bottom bar */
 .side_slide {
     position: absolute;
-    bottom: 0;
     left: 0;
-    width: 0vw;
+    bottom: 0;
+    width: 0;
     height: 100px;
     background-color: #292929;
     border-radius: 0 0 10px 10px;
-    z-index: 1;
-    animation: slideslide 0.7s ease forwards;
-    animation-delay: 1.5s;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: sideExpand 0.7s ease-out forwards;
+    animation-delay: 1.5s;
 }
 
-@keyframes slideslide {
-    0% {
-        bottom: 0;
-        left: 0;
-        width: 0vh;
+@keyframes sideExpand {
+    from {
+        width: 0;
     }
-
-    100% {
-        left: 0;
-        bottom: 0;
+    to {
         width: 100%;
-
-    }
-}
-
-@keyframes slid_text {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 
 .side_slide h3 {
     opacity: 0;
-    color: #ffffff;
-    animation: slid_text 1.2s ease forwards;
-    animation-delay: 1.7s;
+    color: #fff;
     font-size: 1.5rem;
     font-weight: 700;
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 1.7s;
 }
 
 .side_slide h3:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .half_1, .half_2 {
+        width: 100%;
+        height: 50%;
+    }
+
+    .half_1 {
+        top: 0;
+        left: 0;
+    }
+
+    .half_2 {
+        bottom: 0;
+        right: 0;
+    }
+
+    @keyframes slideRight {
+        from { top: 0; }
+        to { top: 50%; }
+    }
+
+    @keyframes slideLeft {
+        from { bottom: 0; }
+        to { bottom: 50%; }
+    }
+
+    .slid_up {
+        border-radius: 20px;
+    }
 }
